@@ -11,7 +11,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all.css')}}">
     <!-- CSS Files -->
     <link href="{{asset('css/material-dashboard.minf066.css?v=2.1.0')}}" rel="stylesheet" />
 </head>
@@ -30,7 +30,7 @@
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="{{asset('img/faces/marc.jpg')}}"/>
+                    <img src="{{asset('img/faces/pusheen.png')}}"/>
                 </div>
                 <div class="user-info">
                     <a data-toggle="collapse" href="#collapseExample" class="username">
@@ -43,20 +43,14 @@
                         <ul class="nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> MP </span>
-                                    <span class="sidebar-normal"> My Profile </span>
+                                    <span class="sidebar-mini"> VP </span>
+                                    <span class="sidebar-normal"> Ver Perfil </span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span class="sidebar-mini"> EP </span>
-                                    <span class="sidebar-normal"> Edit Profile </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="sidebar-mini"> S </span>
-                                    <span class="sidebar-normal"> Settings </span>
+                                    <span class="sidebar-normal"> Editar Perfil </span>
                                 </a>
                             </li>
                         </ul>
@@ -64,16 +58,16 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="nav-item active ">
-                    <a class="nav-link" href="dashboard.html">
+                <li class="nav-item">
+                    <a class="nav-link" href="">
                         <i class="material-icons">dashboard</i>
                         <p> Principal </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">
-                        <i class="material-icons">timer</i>
-                        <p> Principal </p>
+                    <a class="nav-link" href="{{url('medidas')}}">
+                        <i class="fa fa-ruler"></i>
+                        <p> Unidad de Medida </p>
                     </a>
                 </li>
 
@@ -91,7 +85,7 @@
                             <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#pablo">Dashboard</a>
+                    <a class="navbar-brand" href="{{url('/')}}">Dashboard</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -100,17 +94,29 @@
                     <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <form class="navbar-form" hidden></form>
+                    <div class="navbar-form" hidden></div>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">person</i>
                                 <p class="d-lg-none d-md-block">
-                                    Account
+                                    Acciones
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" href="">
+                                    Cerrar Sesion
+                                </a>
+
+                                {{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+                                   {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                    {{--Cerrar Sesion--}}
+                                {{--</a>--}}
+
+                                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                                    {{--{{ csrf_field() }}--}}
+                                {{--</form>--}}
                             </div>
                         </li>
                     </ul>
@@ -121,16 +127,17 @@
         <div class="content">
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4>Plantilla base</h4>
-                                </div>
-                            </div>
-                            <!-- end card -->
-                        </div>
-                    </div>
+                    {{--<div class="row">--}}
+                        {{--<div class="col-md-12">--}}
+                            {{--<div class="card">--}}
+                                {{--<div class="card-body">--}}
+                                    {{--<h4>Plantilla base</h4>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{----}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    @yield('content')
                 </div>
             </div>
         </div>
