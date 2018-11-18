@@ -64,7 +64,7 @@
                         <p> Principal </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="{{ Request::is('medidas*') ? 'nav-item active' : 'nav-item' }}">
                     <a class="nav-link" href="{{url('medidas')}}">
                         <i class="fa fa-ruler"></i>
                         <p> Unidad de Medida </p>
@@ -324,5 +324,6 @@
         });
     });
 </script>
+@stack('scripts')
 </body>
 </html>

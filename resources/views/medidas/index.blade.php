@@ -32,7 +32,7 @@
                                                 <i class="fa fa-pen"></i>
                                             </button>
                                         </a>
-                                        <button type="button" class="btn btn-outline-primary btn-sm">
+                                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="eliminarModelo('{{$medida->nombre}}', '{{url('medidas/'.$medida->id)}}')">
                                             <i class="fa fa-times"></i>
                                         </button>
                                     </td>
@@ -46,9 +46,27 @@
                     {{$medidas->links('pagination.default')}}
                 </div>
             </div>
+
             <!--  end card  -->
         </div>
         <!-- end col-md-12 -->
     </div>
     <!-- end row -->
+
+    @include('modal')
+    @push('scripts')
+        <script>
+
+            function eliminarModelo(nombre, url) {
+                $('#modalEliminarForm').attr("action", url);
+                $('#modalEliminarTitulo').html("Eliminar Modelo");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la Unidad de medida: " + nombre + "?");
+                $('#modalEliminar').modal('show');
+
+            }
+
+        </script>
+
+    @endpush()
+
 @endsection
